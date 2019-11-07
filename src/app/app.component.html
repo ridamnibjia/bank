@@ -20,21 +20,33 @@
       <button mat-flat-button color="primary" type="submit" [disabled]="ifscForm.invalid">Search</button>
     </form>
     <br>
-    <div class="ifsc-details" *ngIf="response" [class.align-content-center]="ifscForm">
-      <mat-card class="example-card">
+    <div *ngIf="show">
 
-         <h3>IFSC Code</h3>
+
+
+      <div class="ifsc-details" *ngIf="response" [class.align-content-center]="ifscForm">
+        <mat-card class="example-card" >
+
+          <h3>IFSC Code</h3>
           <h6>Bank Details</h6>
-        <mat-card-content>
-          <div>
-            <p *ngFor="let key of responseKeys">
-              {{key}} : {{response[key]}}
-            </p>
-          </div>
-        </mat-card-content>
-      </mat-card>
+          <mat-card-content>
+            <div>
+              <p *ngFor="let key of responseKeys">
+                {{key}} : {{response[key]}}
+              </p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="ifsc-error" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
     </div>
-    <div class="ifsc-error" *ngIf="errorMessage">
-      {{errorMessage}}
-    </div>
+
+
+
+
+
+
+
   </div>

@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   ifscForm: FormGroup;
   response: IFSCResponse;
   errorMessage;
+  public show = false;
 
   constructor(private apiService: ApiService, private formBuilder: FormBuilder, private changeDetectorRef: ChangeDetectorRef) {
   }
@@ -29,6 +30,7 @@ export class AppComponent implements OnInit {
 
   clearForm() {
     this.ifscForm.controls.ifsc.setValue('');
+    this.show = !this.show;
   }
 
   formSubmit() {
