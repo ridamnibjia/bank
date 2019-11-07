@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
 
   async fetchDetails(ifscCode) {
     try {
+      this.show = true;
       this.response = await this.apiService.getDetails(ifscCode).toPromise();
       this.errorMessage = null;
       this.changeDetectorRef.markForCheck();
